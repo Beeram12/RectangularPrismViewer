@@ -1,0 +1,41 @@
+{% set name = "rectangularprismviewer" %}
+{% set version = "1.0.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/Beeram12/RectangularPrismViewer.git
+  git_tag: main
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+
+requirements:
+  host:
+    - python
+    - pip
+    - numpy ==2.1.2
+    - pyqt ==5.15.11
+    - pyqt5_sip ==12.15.0
+    - occ ==0.0.2.dev20190912195130
+
+  run:
+    - python
+    - numpy ==2.1.2
+    - pyqt ==5.15.11
+    - pyqt5_sip ==12.15.0
+    - occ ==0.0.2.dev20190912195130
+
+test:
+  imports:
+    - prism_calculator
+    - main  
+
+about:
+  home: https://github.com/Beeram12/RectangularPrismViewer.git
+  license: MIT
+  license_family: MIT
+  summary: "A viewer and calculator for rectangular prism properties"
