@@ -11,27 +11,18 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+  script: "./build.sh"
 
 requirements:
-  host:
-    - python
-    - pip
-    - numpy ==2.1.2
-    - pyqt ==5.15.11
-    - pyqt5_sip ==12.15.0
-    - occ ==0.0.2.dev20190912195130
-
+  build:
+    - python>=3.10
+    - setuptools
   run:
-    - python
-    - numpy ==2.1.2
-    - pyqt ==5.15.11
-    - pyqt5_sip ==12.15.0
-    - occ ==0.0.2.dev20190912195130
+    - python 
 
 test:
   imports:
-    - prism_calculator
+    - test_prism_calculator
     - main  
 
 about:
